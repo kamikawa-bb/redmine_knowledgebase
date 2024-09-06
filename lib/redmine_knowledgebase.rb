@@ -15,10 +15,10 @@ Project.send :include, RedmineKnowledgebase::Concerns::KnowledgebaseProjectExten
 SettingsHelper.send :include, RedmineKnowledgebase::Helpers::KnowledgebaseSettingsHelper
 ApplicationHelper.send :include, RedmineCrm::TagsHelper
 
-Rails.configuration.to_prepare do
+#Rails.configuration.to_prepare do
   Redmine::Activity.register :kb_articles
   Redmine::Search.available_search_types << 'kb_articles'
-end
+#end
 
 class RedmineKnowledgebaseHookListener < Redmine::Hook::ViewListener
   render_on :view_layouts_base_html_head, :inline => "<%= stylesheet_link_tag 'knowledgebase', :plugin => :redmine_knowledgebase %>"
